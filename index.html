@@ -1,21 +1,108 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="大肥鱼"><title>大肥鱼 · 桌宠</title>
-<style>html,body{margin:0;height:100%}body{background:linear-gradient(180deg,#1c1f33,#181a26 40%);color:#edf0ff;font:15px/1.7 system-ui,sans-serif;padding:clamp(16px,5vw,56px);-webkit-tap-highlight-color:transparent}main{max-width:960px;margin:auto}h1{font-size:clamp(30px,6vw,44px);line-height:1.2;letter-spacing:-.03em;margin:.2em 0 .1em}p.sub{color:#a7acc1;margin:0 0 4px}.eyebrow{font-size:11px;letter-spacing:.2em;color:#9fafd9}.pets{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin:28px 0}jingjing-pet{min-width:260px;min-height:260px;display:block}.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}button{background:#ffffff0b;border:1px solid #ffffff20;color:#cad3f0;border-radius:9px;padding:8px 13px;cursor:pointer;font-size:13px}button.primary{background:#3b4a9f;border-color:#5b6ad0;color:#fff}button:hover{background:#ffffff14}.foot{color:#6f7390;font-size:12px;margin-top:26px;border-top:1px solid #ffffff12;padding-top:14px}.demo{display:flex;flex-wrap:wrap;gap:8px}.demo button{font-size:12px;padding:6px 11px}</style></head>
-<body><main><span class="eyebrow">WEB · PWA · 双宠</span><h1>大肥鱼，陪你认真摸鱼。</h1><p class="sub">点击打招呼、悬停跳跃、拖动奔跑、投喂休息。多只鲸鲸娘同屏——每只都独立互动。</p>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="大肥鱼"><title>大肥鱼 · 桌宠 · AI 联动</title>
+<style>html,body{margin:0;height:100%}body{background:linear-gradient(180deg,#1c1f33,#181a26 40%);color:#edf0ff;font:15px/1.7 system-ui,sans-serif;padding:clamp(16px,5vw,48px);-webkit-tap-highlight-color:transparent}main{max-width:960px;margin:auto}h1{font-size:clamp(28px,6vw,40px);line-height:1.2;letter-spacing:-.03em;margin:.15em 0 .05em}p.sub{color:#a7acc1;margin:0}.eyebrow{font-size:11px;letter-spacing:.2em;color:#9fafd9}.pets{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin:22px 0}jingjing-pet{min-width:260px;min-height:240px;display:block}.chat{margin:22px 0;border:1px solid #ffffff18;background:#ffffff06;border-radius:18px;padding:18px}.chat h2{margin:0 0 10px;font-size:18px}.chat .log{max-height:220px;overflow:auto;font-size:13.5px;line-height:1.6}.chat .log .you{color:#9fd0ff;margin:4px 0}.chat .log .pet{color:#e6e9ff;margin:4px 0}.chat .log .sys{color:#7f8496;font-size:12px}.row{display:flex;gap:8px;margin-top:10px}input{flex:1;background:#ffffff0a;border:1px solid #ffffff22;color:#edf0ff;border-radius:9px;padding:9px 12px;font-size:14px}input:focus{outline:1px solid #5b6ad0}button{background:#ffffff0b;border:1px solid #ffffff20;color:#cad3f0;border-radius:9px;padding:8px 13px;cursor:pointer;font-size:13px}button.primary{background:#3b4a9f;border-color:#5b6ad0;color:#fff}button:hover{background:#ffffff14}button:disabled{opacity:.5;cursor:wait}details{margin:12px 0 0;border-top:1px solid #ffffff12;padding-top:10px}summary{cursor:pointer;color:#a9bfff;font-size:13px}.cfg{display:grid;gap:8px;margin-top:8px}.cfg label{font-size:12px;color:#9aa0b8}.foot{color:#6f7390;font-size:12px;margin-top:18px;border-top:1px solid #ffffff12;padding-top:12px}.status{display:inline-block;margin-left:8px;font-size:12px;color:#7f8496}</style></head>
+<body><main>
+<span class="eyebrow">WEB · PWA · 双宠 · AI 联动</span><h1>大肥鱼，陪你认真摸鱼。</h1><p class="sub">左边是桌宠（点击/投喂/台词），右边是 AI 对话——同一个大肥鱼。</p>
 <section class="pets">
-  <div><jingjing-pet src="https://cdn.jsdelivr.net/gh/zhouwu97/ds-pet@1a4acdc33f4306dc8b8a3b25bb392b354f56bf18/codex/jingjing-spritesheet.png" storage-key="jingjing-main"></jingjing-pet><div class="controls"><button class="primary" data-say="0">随机台词</button><button data-act="waving" data-pet="0">打招呼</button><button data-act="jumping" data-pet="0">投喂</button></div></div>
-  <div><jingjing-pet src="https://cdn.jsdelivr.net/gh/zhouwu97/ds-pet@1a4acdc33f4306dc8b8a3b25bb392b354f56bf18/codex/jingjing-spritesheet.png" storage-key="jingjing-comp"></jingjing-pet><div class="controls"><button class="primary" data-say="1">随机台词</button><button data-act="waving" data-pet="1">打招呼</button><button data-act="jumping" data-pet="1">投喂</button></div></div>
+  <div><jingjing-pet id="pet-main" src="https://cdn.jsdelivr.net/gh/zhouwu97/ds-pet@1a4acdc33f4306dc8b8a3b25bb392b354f56bf18/codex/jingjing-spritesheet.png" storage-key="jingjing-main"></jingjing-pet><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"><button data-say="0">随机台词</button><button data-act="waving" data-pet="0">打招呼</button><button data-act="jumping" data-pet="0">投喂</button></div></div>
+  <div><jingjing-pet id="pet-comp" src="https://cdn.jsdelivr.net/gh/zhouwu97/ds-pet@1a4acdc33f4306dc8b8a3b25bb392b354f56bf18/codex/jingjing-spritesheet.png" storage-key="jingjing-comp"></jingjing-pet><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"><button data-say="1">随机台词</button><button data-act="waving" data-pet="1">打招呼</button><button data-act="jumping" data-pet="1">投喂</button></div></div>
 </section>
-<div class="demo">状态演示（动画反映宿主状态）：<button data-state="idle">空闲</button><button data-state="running">工作</button><button data-state="waiting">等待</button><button data-state="review">完成</button><button data-state="failed">失败</button></div>
-<div class="foot">同一只鲸鲸娘，两只一起陪你。以上按钮只演示宿主状态，不读取账户或会话。</div>
+<section class="chat">
+  <h2>AI 联动 · 大肥鱼对话 <span id="link-state" class="status">未连接</span></h2>
+  <div class="log" id="chatlog"><div class="sys">连接 AstrBot 后，在这里和大肥鱼对话。动画会随「思考中→回复」切换。</div></div>
+  <div class="row"><input id="msg" placeholder="和大肥鱼说点什么…" disabled><button id="send" class="primary" disabled>发送</button></div>
+  <details><summary>AI 联动设置（连接本机 AstrBot）</summary>
+    <div class="cfg">
+      <label>AstrBot 地址（电脑 IP:6185，手机与电脑需同 WiFi）</label>
+      <input id="cfg-url" placeholder="http://192.168.1.100:6185 或 http://localhost:6185">
+      <label>用户名 / 密码（AstrBot 管理面板账号，仅存本设备）</label>
+      <div class="row"><input id="cfg-user" placeholder="astrbot"><input id="cfg-pass" type="password" placeholder="密码"></div>
+      <div class="row"><button id="btn-connect" class="primary">连接</button><button id="btn-reset">清空设置</button></div>
+    </div>
+  </details>
+</section>
+<div class="foot">桌宠按钮只演示宿主状态；AI 对话走同一套 AstrBot + 大肥鱼人格。凭据仅存本设备浏览器，不写入页面。</div>
 </main>
 <script type="module">
 const REF='1a4acdc33f4306dc8b8a3b25bb392b354f56bf18';
 const { registerJingjingPet } = await import('https://cdn.jsdelivr.net/gh/zhouwu97/ds-pet@'+REF+'/web/jingjing-pet.js');
 registerJingjingPet();
-const pets = document.querySelectorAll('jingjing-pet');
+const pets = [document.getElementById('pet-main'), document.getElementById('pet-comp')];
 const LINES = ['冒泡～本鱼今日也在认真摸鱼🐋','戳我干啥，是要投喂吗？','呜哇，被你发现了～','工作？再摸五分钟就干～','翻个肚皮，舒舒服服～','你回来啦，本鱼想你了！','本鱼会游泳、会卖萌、还会摸鱼','再戳我，本鱼可就跑咯～'];
-const say = (i,text)=>pets[i].play('waving', text);
-document.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.say; say(i, LINES[Math.floor(Math.random()*LINES.length)]); });
+document.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.say; pets[i].play('waving', LINES[Math.floor(Math.random()*LINES.length)]); });
 document.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.pet; pets[i].play(b.dataset.act, b.dataset.act==='jumping' ? '啊呜，谢谢你的投喂！' : '在呢在呢，陪你一起摸鱼～'); });
-document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>pets.forEach(p=>p.setActivity(b.dataset.state)));
+
+// ---- AI 联动 ----
+const logEl = document.getElementById('chatlog');
+const linkState = document.getElementById('link-state');
+const $ = id => document.getElementById(id);
+const S = { base:'', user:'', pass:'', sid:'' };
+const log = (t, cls) => { const d=document.createElement('div'); d.className=cls||'sys'; d.textContent=t; logEl.appendChild(d); logEl.scrollTop=logEl.scrollHeight; };
+const saved = (()=>{ try { return JSON.parse(localStorage.getItem('dafeiyu-ai')||'{}'); } catch { return {}; } })();
+if(saved.base){ $('cfg-url').value=saved.base; $('cfg-user').value=saved.user||'astrbot'; $('cfg-pass').value=saved.pass||''; }
+
+async function connect(){
+  const base = ($('cfg-url').value||'').trim().replace(/\/$/,'');
+  const user = ($('cfg-user').value||'').trim();
+  const pass = $('cfg-pass').value;
+  if(!base){ log('请填写 AstrBot 地址','sys'); return; }
+  $('btn-connect').disabled=true; log('正在连接 '+base+' …','sys');
+  try {
+    const r = await fetch(base+'/api/auth/login', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({username:user, password:pass}), credentials:'include'});
+    const j = await r.json();
+    if(!r.ok || j.status==='error'){ throw new Error(j.message||('HTTP '+r.status)); }
+    const s = await fetch(base+'/api/chat/new_session?platform_id=webchat', {credentials:'include'});
+    const sj = await s.json();
+    if(!s.ok || sj.status==='error'){ throw new Error(sj.message||('会话失败 '+s.status)); }
+    S.base=base; S.user=user; S.pass=pass; S.sid=sj.data?.session_id||'';
+    localStorage.setItem('dafeiyu-ai', JSON.stringify({base,user,pass}));
+    $('msg').disabled=false; $('send').disabled=false; linkState.textContent='已连接';
+    log('已连接大肥鱼 AI（同一套 AstrBot 人格）','sys');
+  } catch(e){
+    linkState.textContent='连接失败'; log('连接失败：'+e.message,'sys');
+  } finally { $('btn-connect').disabled=false; }
+}
+async function sendMsg(){
+  const text = $('msg').value.trim(); if(!text || !S.sid) return;
+  $('msg').value=''; $('send').disabled=true;
+  log('你：'+text, 'you');
+  // 动画：思考中
+  pets.forEach(p=>p.setActivity('waiting'));
+  try {
+    const r = await fetch(S.base+'/api/chat/send', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({session_id:S.sid, message:text}), credentials:'include'});
+    if(!r.ok){ const j=await r.json().catch(()=>({})); throw new Error(j.message||('HTTP '+r.status)); }
+    const ctype = r.headers.get('content-type')||'';
+    let reply='';
+    if(ctype.includes('event-stream')){
+      const body = await r.text();
+      // 解析 SSE 中最终完整回复：取 data: 里的文本累计
+      const lines = body.split(/\r?\n/);
+      let last='';
+      for(const ln of lines){
+        if(ln.startsWith('data:')){
+          const payload = ln.slice(5).trim();
+          try { const o = JSON.parse(payload); if(o && typeof o.text==='string') last += o.text; } catch { if(payload) last += payload; }
+        }
+      }
+      reply = last || extractText(lines);
+    } else {
+      const j = await r.json(); reply = j.data?.message || JSON.stringify(j);
+    }
+    pets.forEach(p=>p.setActivity('idle'));
+    log('大肥鱼：'+(reply||'(空回复)'), 'pet');
+    pets[0].play('waving', (reply||'').slice(0,40) || '收到～');
+  } catch(e){
+    pets.forEach(p=>p.setActivity('idle'));
+    log('出错：'+e.message,'sys');
+  } finally { $('send').disabled=false; }
+}
+function extractText(lines){
+  // 兜底：取最后一段形如 [DONE] 前的非空文本
+  const joined = lines.filter(l=>l.startsWith('data:')).map(l=>l.slice(5).trim()).join('');
+  return joined.replace(/\[DONE\]/g,'').trim() || '(无法解析流)';
+}
+$('btn-connect').onclick=connect;
+$('btn-reset').onclick=()=>{ localStorage.removeItem('dafeiyu-ai'); $('cfg-url').value=''; $('cfg-user').value='astrbot'; $('cfg-pass').value=''; S.sid=''; linkState.textContent='未连接'; };
+$('send').onclick=sendMsg;
+$('msg').addEventListener('keydown', e=>{ if(e.key==='Enter') sendMsg(); });
+if(saved.base){ log('检测到已保存的 AstrBot 设置，点「连接」即可使用。','sys'); }
 </script></body></html>
