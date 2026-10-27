@@ -1,0 +1,16 @@
+{
+  "name": "大肥鱼 · 桌宠",
+  "short_name": "大肥鱼",
+  "description": "会陪你认真摸鱼的大肥鱼桌宠，可以点、喂、拖动，还能和 AI 聊天。",
+  "lang": "zh-CN",
+  "start_url": "/dafeiyu-pwa/",
+  "scope": "/dafeiyu-pwa/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1c1f33",
+  "theme_color": "#1c1f33",
+  "icons": [
+    { "src": "https://aka.doubaocdn.com/s/VwUyIAnUlI", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "https://aka.doubaocdn.com/s/VwUyIAnUlI", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
